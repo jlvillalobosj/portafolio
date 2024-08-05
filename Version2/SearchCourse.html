@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src = "app.js"></script>
+<script src = "Service.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+</head>
+<body class="">
+
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<nav class="w3-sidebar w3-bar-block w3-indigo w3-small w3-hide-small w3-center">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>USUARIO</p>
+  </a>
+  <a href="academic_history.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-book w3-xxlarge"></i>
+    <p>HISTORIA ACADÉMICA</p>
+  </a>
+  <a href="SearchCourse.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>BUSCADOR DE CURSOS</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="index.html" class="w3-bar-item w3-button" style="width:25% !important">USUARIO</a>
+    <a href="academic_history.html" class="w3-bar-item w3-button" style="width:25% !important">HISTORIA ACADÉMICA</a>
+    <a href="SearchCourse.html" class="w3-bar-item w3-button" style="width:25% !important">BUSCADOR DE CURSOS</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  
+    <!-- About Section -->
+    <div class="w3-justify w3-text-grey w3-padding-64" id="about">
+      <h2 class="w3-text-light-black w3-cursive">Buscador de Cursos</h2>
+      <hr style="width:30%" class="">
+
+      <div class="w3-row-padding">
+
+        <div class="w3-col" style="width:40%">
+          <input class="w3-input w3-border w3-round-large w3-padding "   type="text" placeholder="Buscar Curso . . ." id="myInput" onkeyup="myFunction()">
+        </div>
+
+        <div class="w3-col" style="width:20%">      
+          
+          
+        <form  id="filter_creditd" placeholder="Buscar Curso . . .">
+      
+          <select class="w3-input w3-border w3-round-large w3-padding "  name="select_credits">
+              <option value="1"></option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+          
+          <input type="submit" />
+          
+        </form>
+        </div>       
+
+        <div class="w3-col" style="width:29%">
+          <p></p>
+        </div>      
+        
+        <div class="w3-col" style="width:10%">
+          <button onclick="OpenModalCreate()" class="w3-button w3-blue w3-round-xlarge ">+ Crear curso</button>
+        </div>
+
+        <div id="modalCreateCourse" class="w3-modal">
+          <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+            <header class="w3-container w3-teal"> 
+              <span onclick="document.getElementById('modalCreateCourse').style.display='none'" 
+              class="w3-button w3-display-topright">&times;</span>
+              <h2>Crear curso</h2>
+            </header>
+      
+            <form id="formCreateCourse" class="w3-container" >
+              <div class="w3-section">
+                <label><b>Nombre del curso</b></label>
+                <input id="nameSubject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="text" placeholder="Ingrese el nobre de la asignatura" name="nameSubject" required>
+
+                <div class="w3-row">
+                  <div class="w3-col w3-margin-right" style="width:45%">
+                    <label><b>Créditos</b></label>
+                    <input id="creditsSubject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="number" placeholder="Ingrese los créditos de la asignatura" name="creditsSubject" required>
+                  </div>
+                  <div class="w3-col" style="width:50%">
+                    <label><b>Cupos</b></label>
+                    <input id="quotesSubject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="number" placeholder="Ingrese los cupos de la asignatura" name="quotesSubject" required>
+                  </div>
+                </div> 
+                <label><b>Descripción</b></label>
+                <textarea class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText " id="descriptionSubject" placeholder="Ingrese la descripción de la asignatura. . . " name="descriptionSubject" required></textarea>
+                <!-- <input id="descriptionSubject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="text" placeholder="Ingrese los créditos de la asignatura" name="descriptionSubject" required> -->
+                  
+                
+              </div>
+            </form>
+                     
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-white">
+              <button  id="Guardar_Editar" onclick="createSubject()" class="w3-right w3-button w3-green w3-round-medium" type="submit" >Guardar</button>
+              <button onclick="document.getElementById('modalCreateCourse').style.display='none'" type="button" class="w3-right w3-margin-right w3-button w3-red w3-round-medium">Cancelar</button>
+              <span id="msgFormAdd" class="msg-error"></span>
+            </div>
+          </div>
+          
+        </div>
+
+        <div id="modalDeleteCourse" class="w3-modal">
+          <div class="w3-modal-content">
+            <header class="w3-container w3-red"> 
+              <span onclick="document.getElementById('modalDeleteCourse').style.display='none'" 
+              class="w3-button w3-display-topright">&times;</span>
+              <h2>Eliminar curso</h2>
+            </header>
+            <div class="w3-container">
+              <p>¿Esta seguro de eliminar el curso?</p>
+            </div>            
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-white">
+              <button onclick="DeleteElement()" class="w3-right w3-button w3-red w3-round-medium" >Eliminar</button>
+              <button onclick="document.getElementById('modalDeleteCourse').style.display='none'" type="button" class="w3-right w3-margin-right w3-btn w3-white w3-border w3-border-red w3-round-medium">Cancelar</button>
+              <span id="msgFormAdd" class="msg-error"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      </div>
+
+        <!-- List all subjects -->
+      <table id="table" class="w3-table-all">
+        <thead>
+          <tr class="w3-blue-gray">
+            <th>Asignaturas</th>
+            <th>Créditos</th>
+            <th>Cupos disponibles</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+        </tr>
+      </table>
+
+            <!-- Footer -->
+    <footer class="w3-padding-64 w3-text-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+      <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Equipo estructura de datos</a></p>
+    <!-- End footer -->
+    </footer>
+
+    </div>
+  
+  <!-- END PAGE CONTENT -->
+  </div>
+
+</body>
+</html>
+
+

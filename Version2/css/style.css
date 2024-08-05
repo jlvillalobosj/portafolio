@@ -1,0 +1,28 @@
+
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #0e0953;}
+.w3-row-padding img {margin-bottom: 12px}
+#main {margin-left: 120px}
+
+
+body, h1,h2,h3,h4,h5,h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #main {
+      margin-left: 0;
+    }
+  }
+  
+  /* Set the width of the image presentation */
+  .circle-img {
+    width: 50%; /* Ajusta el tamaño de la imagen en porcentaje */
+    height: auto; /* Mantiene la relación de aspecto */
+    max-width: 150px; /* Opcional: tamaño máximo */
+    max-height: 200px; /* Opcional: tamaño máximo */
+    object-fit: cover; /* Ajusta la imagen para que se ajuste a las dimensiones */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+  }
