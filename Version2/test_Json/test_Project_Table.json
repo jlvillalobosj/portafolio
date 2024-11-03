@@ -1,0 +1,43 @@
+[
+    {
+        "name": "ROVER UN",
+        "description": "Design of a robot with explorer functions",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Not started"
+    },
+
+    {
+        "name": "WEB portfolio improvement",
+        "description": "Portfolio improvement with backend and frontend",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Process"
+    },
+
+    {
+        "name": "Economic administration APP",
+        "description": "Design of an APP for managing the economic income",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Process"
+    },
+
+    {
+        "name": "Water rocket falcon",
+        "description": "Water rocket that have the control to land on ots own",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Consideration"
+    },
+
+    {
+        "name": "Review of an old motherboard",
+        "description": "Testing the operation of a motherboard",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Finished"
+    },
+
+    {
+        "name": "Review of an old smartphone",
+        "description": "Starting up old smartphones",
+        "members": ["Villalobos", "Quintero", "Moreno", "Fontecha"],
+        "state": "Consideration"
+    }
+]

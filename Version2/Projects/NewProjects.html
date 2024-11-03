@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src = "./../app.js"></script>
         <!-- <script></script> -->
         <link rel="stylesheet" href="../css/style.css" />
     </head>
@@ -42,12 +43,83 @@
             <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="list_projects" style="max-width: 90%;">
 
               <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
-                <h2 class="w3-text-light-black">Projects table</h2>
+                <h2 class="w3-text-light-black w3-cursive">Projects</h2>
                 <button 
-                        style="background-color: #4c77af; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">
+                onclick="OpenModalCreate()" style="background-color: #4c77af; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">
                   + Add project
                 </button>
               </div>
+
+              
+
+        <div id="modalCreateProject" class="w3-modal">
+          <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+            <header class="w3-container w3-teal"> 
+              <span onclick="document.getElementById('modalCreateProject').style.display='none'" 
+              class="w3-button w3-display-topright">&times;</span>
+              <h2>Create project</h2>
+            </header>
+      
+            <form id="formCreateProject" class="w3-container" >
+              <div class="w3-section">
+                <label><b>Name of the project</b></label>
+                <input id="nameProject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="text" placeholder="Enter the name of the project" name="nameProject" required>
+
+                <div class="w3-row">
+                  <div class="w3-col w3-margin-right" style="width:45%">
+                    <label><b>Members</b></label>
+                    <form id="membersProject" class="w3-container w3-card-4">
+                      <p>
+                      <input class="w3-check" type="checkbox" checked="checked">
+                      <label>Julian Villalobos</label></p>
+                      <p>
+                      <input class="w3-check" type="checkbox">
+                      <label> Brayan Quintero</label></p>
+                      <p>
+                      <input class="w3-check" type="checkbox">
+                      <label> Sebastian Moreno</label></p>
+                      <p>
+                      <input class="w3-check" type="checkbox">
+                      <label> Maicol Fontecha</label></p>
+                    </form>
+                  </div>
+
+                  <div class="w3-col" style="width:50%">
+                    <label><b>State</b></label>
+                    <form id="stateProject" >
+                      <p>
+                      <input class="w3-radio" type="radio" name="gender" value="finished">
+                      <label>Finished</label></p>
+                      <p>
+                      <input class="w3-radio" type="radio" name="gender" value="process">
+                      <label>Process</label></p>
+                      <p>
+                      <input class="w3-radio" type="radio" name="gender" value="notStart">
+                      <label>Not started</label></p>
+                      <p>
+                      <input class="w3-radio" type="radio" name="gender" value="consideration" checked>
+                      <label>Consideration</label></p>
+                    </form>
+                  </div>
+                </div> 
+                <label><b>Description</b></label>
+                <textarea class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText " id="descriptionProject" placeholder="Enter a description for the project. . . " name="descriptionProject" required></textarea>
+                <!-- <input id="descriptionSubject" class="w3-input w3-border w3-round-large w3-padding w3-margin-bottom fieldText" type="text" placeholder="Ingrese los créditos de la asignatura" name="descriptionSubject" required> -->
+                  
+                
+              </div>
+            </form>
+                     
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-white">
+              <button  id="Guardar_Editar" onclick="createSubject()" class="w3-right w3-button w3-green w3-round-medium" type="submit" >Save</button>
+              <button onclick="document.getElementById('modalCreateProject').style.display='none'" type="button" class="w3-right w3-margin-right w3-button w3-red w3-round-medium">Cancel</button>
+              <span id="msgFormAdd" class="msg-error"></span>
+            </div>
+          </div>
+          
+        </div>
+
+
               <div class="w3-padding-16">
                 <div class="w3-row-padding">
                   
@@ -75,169 +147,17 @@
               
               <hr style="width:100%" class="">
 
-              <table class="w3-table w3-striped">
-                <tr>
-                  <th>Name project</th>
-                  <th>Description</th>
-                  <th>Members</th>
-                  <th>State</th>
-                  <th>Options</th>
-                </tr>
+              <table id="tableProjects" class="w3-table w3-striped">
+                <thead>
+                  <tr tr class="w3-blue-gray">
+                    <th>Name project</th>
+                    <th>Description</th>
+                    <th>Members</th>
+                    <th>State</th>
+                    <th>Options</th>
+                  </tr>
 
-                <tr>
-                  <td>ROVER UN</td>
-                  <td>Diseño de un robot que tenga las funciones principales de investigacion 
-                    
-                    <div class="w3-dropdown-hover">Tokyo
-                      <div class="w3-dropdown-content w3-card-4" style="width:250px">
-                        <img src="img_tokyo.jpg" alt="Tokyo" style="width:100%">
-                        <div class="w3-container">
-                          <p>Tokyo is the capital city of Japan.</p>
-                          <p>13 million inhabitants.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td class="w3-text-green">Finished</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>WEB portfolio improvement</td>
-                  <td>Mejora del portafolio WEB con backend y frontend</td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td class="w3-text-yellow">Process</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Economic administration</td>
-                  <td>Diseño de APP que le permita al usuario administrar sus ingresos economicos</td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td class="w3-text-red">Not started</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Water rocket falcon</td>
-                  <td>Cohete ed agua con la capacidad de aterrizar como el Falcn</td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td>Consideration</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Review of an old motherboard</td>
-                  <td>Prueba de funcionamiento de tarjetas madres viejas</td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td>Consideration</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Review of an old smartphone</td>
-                  <td>Poner en marcha celulares smathphone </td>
-                  <td>Villalobos, Quintero, Moreno, Fontecha</td>
-                  <td class="w3-text-red">Not started</td>
-                  <td>
-                    <div class="w3-display-container" style="display: flex; align-items: center;">
-                      <div class="w3-tooltip" style="position: relative;">
-                        <i class="fas fa-eye w3-hover-text-blue" style="margin-right: 20%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            View
-                        </span>
-                      </div>
-                
-                      <div class="w3-tooltip" style="position: relative; margin-left: 15%;">
-                        <i class="fas fa-trash-alt w3-hover-text-red" style="margin-left: 40%;"></i>
-                        <span style="position:absolute; left:0; bottom:78%;" class="w3-text w3-tag w3-round w3-dark-grey w3-small w3-animate-opacity">
-                            Delete
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
+                </thead>
               </table>
         
         
